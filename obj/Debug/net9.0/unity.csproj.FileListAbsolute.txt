@@ -12,3 +12,4 @@
 /Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.pdb
 /Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.genruntimeconfig.cache
 /Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/ref/unity.dll
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.sourcelink.json

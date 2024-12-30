@@ -1,12 +1,14 @@
 ﻿// * Screen Sound Alura
 
-string welcomeMsg = "Boas Vindas Ao Screen Sound!"; // ! Toda Variavel deve ser finalizada com ;
-
+string welcomeMsg = "\nBoas Vindas Ao Screen Sound!"; // ! Toda Variavel deve ser finalizada com ;
 // * Console.WriteLine é um método que exibe uma mensagem no console
 // * Console.WriteLine(welcomeMsg);
 
+
+List<string> listBands = new List<string>{"Black Sabbath", "AC/DC", "Iron Maiden"}; // * Criando uma Lista de Bandas
+
 // * Criando uma Função
-void ShowMsg(){
+void logo(){
     Console.WriteLine(@"
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
 ██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
@@ -15,6 +17,11 @@ void ShowMsg(){
 ██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░"); 
 // ! @ Chamado de Verbatim Literal que basicamente mostra o texto como ele realmente é 
+}
+
+void ShowMsg(){
+    Console.Clear(); // * Limpa a Tela
+    logo();
     Console.WriteLine(welcomeMsg);
 }
 
@@ -25,6 +32,7 @@ if (notaMedia >= 5){
 }
 
 void MenuOptions(){
+    ShowMsg();
     Console.WriteLine("\n1 - Cadastrar Banda");
     Console.WriteLine("2 - Mostrar todas as Bandas");
     Console.WriteLine("3 - Avaliar Banda");
@@ -39,10 +47,10 @@ void MenuOptions(){
     switch(optionInt){
         
         case 1:
-            Console.WriteLine("Cadastrar Banda");
+            RegisterBand();
             break;
         case 2:
-            Console.WriteLine("Mostrar todas as Bandas");
+            AllBands();
             break;
         case 3:
             Console.WriteLine("Avaliar Banda");
@@ -51,13 +59,64 @@ void MenuOptions(){
             Console.WriteLine("Mostrar Média da Banda");
             break;
         case 5:
-            Console.WriteLine("Tchau Tchau :) ");
+            exit();
             break;
         default:
-            Console.WriteLine("Tchau Tchau :) ");
+            exit();
             break;
     }
 }
 
-ShowMsg(); // * Chamar a função
+void RegisterBand(){
+    Console.Clear();
+    logo();
+    Console.WriteLine("Cadastro de Banda");
+    Console.Write("\nDigite o nome da Banda: ");
+    string bandName = Console.ReadLine()!;
+    listBands.Add(bandName); // * Adiciona o nome da Banda na Lista
+    Console.WriteLine($"\nA Banda {bandName} foi cadastrada com sucesso!");
+    Thread.Sleep(1000);
+    Console.Clear();
+    back();
+    MenuOptions();
+}
+
+void AllBands(){
+    Console.Clear();
+    logo();
+    Console.WriteLine("Todas as Bandas Cadastradas");
+    // for (int i = 0; i < listBands.Count; i++){ Console.WriteLine(listBands[i]); }
+    foreach(string band in listBands){
+        Console.WriteLine("");
+        Console.WriteLine(band);
+    }
+    Console.WriteLine("\nPressione qualquer tecla para voltar ao Menu");
+    Console.ReadKey(); // * Aguarda o Usuário pressionar uma tecla
+    Console.Clear();
+    back();
+    MenuOptions();
+}
+void exit(){
+    Console.Write("Saindo");
+
+    for (int i = 0; i < 3; i++)
+    {
+        Thread.Sleep(800);
+        Console.Write("."); // Adiciona um ponto à mesma linha
+    }
+
+    Console.Clear();
+    Environment.Exit(0); // Encerra o programa
+}
+void back(){
+    Console.Write("Voltando");
+
+    for (int i = 0; i < 3; i++)
+    {
+        Thread.Sleep(800);
+        Console.Write(".");
+    }
+    Console.Clear();
+}
+
 MenuOptions();
