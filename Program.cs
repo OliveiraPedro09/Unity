@@ -1,13 +1,13 @@
 ﻿// * Screen Sound Alura
 
 string welcomeMsg = "\nBoas Vindas Ao Screen Sound!"; // ! Toda Variavel deve ser finalizada com ;
-// * Console.WriteLine é um método que exibe uma mensagem no console
-// * Console.WriteLine(welcomeMsg);
 
+// List<string> listBands = new List<string>{"Black Sabbath", "AC/DC", "Iron Maiden"}; // * Criando uma Lista de Bandas
 
-List<string> listBands = new List<string>{"Black Sabbath", "AC/DC", "Iron Maiden"}; // * Criando uma Lista de Bandas
+Dictionary<string, List<int>> bands = new Dictionary<string, List<int>>();
+bands.Add("Black Sabbath", new List<int>{10,9,8});
+bands.Add("AC/DC", new List<int>{10,8,4,4});
 
-// * Criando uma Função
 void logo(){
     Console.WriteLine(@"
 ░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
@@ -20,7 +20,7 @@ void logo(){
 }
 
 void ShowMsg(){
-    Console.Clear(); // * Limpa a Tela
+    Console.Clear();
     logo();
     Console.WriteLine(welcomeMsg);
 }
@@ -41,7 +41,7 @@ void MenuOptions(){
 
     Console.Write("\nEscolha uma opção: ");
     string option = Console.ReadLine()!; // ! Ler a opção do Usuário, e o ! mostra que não pode ser nulo
-    int optionInt = int.Parse(option); // * Parse Converte uma string em um inteiro
+    int optionInt = int.Parse(option);
 
     
     switch(optionInt){
@@ -53,7 +53,7 @@ void MenuOptions(){
             AllBands();
             break;
         case 3:
-            Console.WriteLine("Avaliar Banda");
+            BandRate();
             break;
         case 4:
             Console.WriteLine("Mostrar Média da Banda");
@@ -70,10 +70,11 @@ void MenuOptions(){
 void RegisterBand(){
     Console.Clear();
     logo();
-    Console.WriteLine("Cadastro de Banda");
+    optionTitle("Cadastro de Banda");
     Console.Write("\nDigite o nome da Banda: ");
     string bandName = Console.ReadLine()!;
-    listBands.Add(bandName); // * Adiciona o nome da Banda na Lista
+    //listBands.Add(bandName); // * Adiciona o nome da Banda na Lista
+    bands.Add(bandName,new List<int>());
     Console.WriteLine($"\nA Banda {bandName} foi cadastrada com sucesso!");
     Thread.Sleep(1000);
     Console.Clear();
@@ -84,9 +85,8 @@ void RegisterBand(){
 void AllBands(){
     Console.Clear();
     logo();
-    Console.WriteLine("Todas as Bandas Cadastradas");
-    // for (int i = 0; i < listBands.Count; i++){ Console.WriteLine(listBands[i]); }
-    foreach(string band in listBands){
+    optionTitle("Listar todas as Bandas");
+    foreach(string band in bands.Keys){
         Console.WriteLine("");
         Console.WriteLine(band);
     }
@@ -96,13 +96,48 @@ void AllBands(){
     back();
     MenuOptions();
 }
+
+void BandRate(){
+    Console.Clear();
+    logo();
+    optionTitle("Avaliar Banda");
+    foreach(string band in bands.Keys){
+        Console.WriteLine(band + "\n");
+    }
+    Console.Write("\nDigite o nome da Banda que deseja avaliar: ");
+    string bandName = Console.ReadLine()!;
+    if (bands.ContainsKey(bandName)){
+        Console.Write($"Digite a nota da Banda {bandName}: ");
+        int rate = int.Parse(Console.ReadLine()!);
+        bands[bandName].Add(rate);
+        Console.WriteLine($"\nA Banda {bandName} foi avaliada com sucesso! Com a nota {rate}");
+        Thread.Sleep(1000);
+        Console.Clear();
+        back();
+        MenuOptions();
+    } else {
+        Console.WriteLine($"\nA Banda {bandName} não foi encontrada");
+        back();
+        MenuOptions();
+    }
+}
+
+void optionTitle( string title ){
+
+    int titleLength = title.Length;
+    string underline = string.Empty.PadLeft(titleLength, '_'); // ! Um caractere você usa aspas simples
+    Console.WriteLine(underline + "\n");
+    Console.WriteLine(title);
+    Console.WriteLine(underline + "\n");
+}
+
 void exit(){
     Console.Write("Saindo");
 
     for (int i = 0; i < 3; i++)
     {
         Thread.Sleep(800);
-        Console.Write("."); // Adiciona um ponto à mesma linha
+        Console.Write(".");
     }
 
     Console.Clear();
