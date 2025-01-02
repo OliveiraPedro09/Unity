@@ -1,9 +1,18 @@
-﻿Music musica_1 = new Music();
-musica_1.Name = "Fear of The Dark";
-musica_1.Artist = "Iron Maiden";
-musica_1.Album = "Fear of The Dark";
-musica_1.Genre = "Heavy Metal";
-musica_1.Duration = 393;
-musica_1.Availability = true;
+﻿Album album = new Album();
 
-musica_1.ShowMusic();
+album.Name = "The Dark Side of the Moon";
+
+Music music1 = new Music();
+music1.Name = "Speak to Me";
+music1.Artist = "Pink Floyd";
+music1.Duration = 105;
+
+Music music2 = new Music();
+music2.Name = "Breathe";
+music2.Artist = "Pink Floyd";
+music2.Duration = 249;
+
+album.MusicFind(music1);
+album.MusicFind(music2);
+
+album.ShowAlbum();

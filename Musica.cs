@@ -5,14 +5,14 @@ class Music{
     public string Genre {get; set;} = string.Empty;
     public int Duration {get; set;}
     public bool Availability {get; set;}
-    public string Description => $"A música {Name} é do artista {Artist} e está disponível no álbum {Album}.";
+    public string Description => $"A música {Name} é do artista {Artist} e está disponível no álbum {Album}.\n";
 
     public void ShowMusic(){
-        Console.WriteLine("Nome: " + Name);
+        Console.WriteLine("\nNome: " + Name);
         Console.WriteLine("Artista: " + Artist);
         Console.WriteLine("Album: " + Album);
         Console.WriteLine("Genero: " + Genre);
-        Console.WriteLine("Duracao: " + Duration);
+        Console.WriteLine("Duração: " + Duration + " segundos");
         if (Availability){
             Console.WriteLine("Disponivel");
         } else {
