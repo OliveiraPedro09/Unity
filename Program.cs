@@ -7,6 +7,8 @@ string welcomeMsg = "\nBoas Vindas Ao Screen Sound!"; // ! Toda Variavel deve se
 Dictionary<string, List<int>> bands = new Dictionary<string, List<int>>();
 bands.Add("Black Sabbath", new List<int>{10,9,8});
 bands.Add("AC/DC", new List<int>{10,8,4,4});
+bands.Add("Iron Maiden", new List<int>{10,10,10,10,10});
+bands.Add("Led Zeppelin", new List<int>{10,9,9,9,8});
 
 void logo(){
     Console.WriteLine(@"
@@ -56,7 +58,7 @@ void MenuOptions(){
             BandRate();
             break;
         case 4:
-            Console.WriteLine("Mostrar Média da Banda");
+            BandAvgRate();
             break;
         case 5:
             exit();
@@ -111,6 +113,29 @@ void BandRate(){
         int rate = int.Parse(Console.ReadLine()!);
         bands[bandName].Add(rate);
         Console.WriteLine($"\nA Banda {bandName} foi avaliada com sucesso! Com a nota {rate}");
+        Thread.Sleep(1000);
+        Console.Clear();
+        back();
+        MenuOptions();
+    } else {
+        Console.WriteLine($"\nA Banda {bandName} não foi encontrada");
+        back();
+        MenuOptions();
+    }
+}
+
+void BandAvgRate(){
+    Console.Clear();
+    logo();
+    optionTitle("Média da Banda");
+    foreach(string band in bands.Keys){
+        Console.WriteLine(band + "\n");
+    }
+    Console.Write("\nDigite o nome da Banda que deseja ver a média: ");
+    string bandName = Console.ReadLine()!;
+    if (bands.ContainsKey(bandName)){
+        double avg = bands[bandName].Average();
+        Console.WriteLine($"\nA média da Banda {bandName} é {avg}");
         Thread.Sleep(1000);
         Console.Clear();
         back();
