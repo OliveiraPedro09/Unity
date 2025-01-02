@@ -1,0 +1,15 @@
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.AssemblyInfoInputs.cache
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.AssemblyInfo.cs
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.csproj.CoreCompileInputs.cache
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.sourcelink.json
+/Users/pedromartinsdeoliveira/Documents/unity/bin/Debug/net9.0/unity
+/Users/pedromartinsdeoliveira/Documents/unity/bin/Debug/net9.0/unity.deps.json
+/Users/pedromartinsdeoliveira/Documents/unity/bin/Debug/net9.0/unity.runtimeconfig.json
+/Users/pedromartinsdeoliveira/Documents/unity/bin/Debug/net9.0/unity.dll
+/Users/pedromartinsdeoliveira/Documents/unity/bin/Debug/net9.0/unity.pdb
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.dll
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/refint/unity.dll
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.pdb
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/unity.genruntimeconfig.cache
+/Users/pedromartinsdeoliveira/Documents/unity/obj/Debug/net9.0/ref/unity.dll
